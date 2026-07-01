@@ -32,7 +32,10 @@ const retry = async ({ promise, retries, retryTime }: RetryOptions): GoToReturn 
 const main = async () => {
   const child = exec('npm run dev');
 
-  const browser = await puppeteer.launch({ headless: 'new' });
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    executablePath: '/usr/bin/google-chrome'
+  });
 
   const page = await browser.newPage();
 

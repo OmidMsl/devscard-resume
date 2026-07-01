@@ -1,4 +1,4 @@
-import type { DateRange, LinkButton, Photo, Section, TagsList } from '../shared';
+import type { DateRange, LinkButton, Photo, Section, GroupedTagsList } from '../shared';
 
 export interface Job {
   /**
@@ -34,7 +34,7 @@ export interface Job {
    * Any information that you want to highlight.
    * We recommend to describe the technologies used in the project.
    */
-  tagsList: TagsList;
+  tagsList: GroupedTagsList;
 
   /**
    * [WEB] Links related to your job (e.g. production app, company's website, project website).

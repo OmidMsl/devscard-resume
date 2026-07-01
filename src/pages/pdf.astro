@@ -5,6 +5,7 @@ import EducationSection from '@/pdf/sections/education-section.pdf.astro';
 import ExperienceSection from '@/pdf/sections/experience-section.pdf.astro';
 import MainSection from '@/pdf/sections/main-section.pdf.astro';
 import PortfolioSection from '@/pdf/sections/portfolio-section.pdf.astro';
+import ResearchSection from '@/pdf/sections/research-section.pdf.astro';
 import SkillsSection from '@/pdf/sections/skills-section.pdf.astro';
 
 import cv from '@/data';
@@ -27,6 +28,7 @@ const shouldRenderSection = (section: keyof typeof sections) => sections[section
     {shouldRenderSection('skills') && <SkillsSection {...sections.skills} />}
     {shouldRenderSection('experience') && <ExperienceSection {...sections.experience} />}
     {shouldRenderSection('portfolio') && <PortfolioSection {...sections.portfolio} />}
+    {shouldRenderSection('research') && <ResearchSection {...sections.research} />}
     {shouldRenderSection('education') && <EducationSection {...sections.education} />}
     {config.pdf?.footer && <Footer>{config.pdf.footer}</Footer>}
   </body>

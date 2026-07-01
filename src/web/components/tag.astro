@@ -5,7 +5,7 @@ import Typography from './typography.astro';
 
 export interface Props extends Tag {}
 
-const { name, description, icon, iconColor, url } = Astro.props;
+const { name, description, icon, iconSvg, iconColor, url } = Astro.props;
 
 const className = /* tw */ 'flex h-6 w-fit items-center gap-x-1.5 rounded bg-gray-100 px-2.5 dark:bg-gray-700';
 const customProps = url
@@ -22,6 +22,33 @@ const customProps = url
 ---
 
 <Typography variant="tag" data-tooltip={description} {...customProps}>
-  {icon && <Icon name={icon} color={iconColor} size={16} />}
+  {iconSvg ? (
+    (() => {
+      const src = typeof iconSvg === 'string' ? iconSvg : iconSvg.src;
+      const color = iconColor ?? 'currentColor';
+
+      return (
+        <span
+          aria-hidden="true"
+          style={{
+            display: 'inline-block',
+            width: '16px',
+            height: '16px',
+            backgroundColor: color,
+            WebkitMaskImage: `url(${src})`,
+            WebkitMaskRepeat: 'no-repeat',
+            WebkitMaskPosition: 'center',
+            WebkitMaskSize: 'contain',
+            maskImage: `url(${src})`,
+            maskRepeat: 'no-repeat',
+            maskPosition: 'center',
+            maskSize: 'contain',
+          }}
+        />
+      );
+    })()
+  ) : (
+    icon && <Icon name={icon} color={iconColor} size={16} />
+  )}
   {name}
 </Typography>

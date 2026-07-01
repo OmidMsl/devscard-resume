@@ -6,6 +6,7 @@ import type { ExperienceSection } from './sections/experience-section.types';
 import type { FavoritesSection } from './sections/favorites-section.types';
 import type { MainSection } from './sections/main-section.types';
 import type { PortfolioSection } from './sections/portfolio-section.types';
+import type { ResearchSection } from './sections/research-section.types';
 import type { SkillsSection } from './sections/skills-section.types';
 import type { TestimonialsSection } from './sections/testimonials-section.types';
 
@@ -51,6 +52,11 @@ export type Sections = {
    * Your education degrees and certifications.
    */
   education: EducationSection;
+
+  /**
+   * Your scholarly publications and research work.
+   */
+  research: ResearchSection;
 
   /**
    * [WEB] Recommendations from your previous employers and people you worked with.

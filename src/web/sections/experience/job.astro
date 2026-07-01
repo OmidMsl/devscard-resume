@@ -2,7 +2,7 @@
 import type { Job } from '@/types/sections/experience-section.types';
 import Description from '@/web/components/description.astro';
 import LinkButton from '@/web/components/link-button.astro';
-import TagsList from '@/web/components/tags-list.astro';
+import GroupedTagsList from '@/web/components/grouped-tags-list.astro';
 import Thumbnail from '@/web/components/thumbnail.astro';
 import Timestamp from '@/web/components/timestamp.astro';
 import Typography from '@/web/components/typography.astro';
@@ -33,5 +33,5 @@ const { role, company, dates, description, links, tagsList, image } = Astro.prop
     }
   </div>
   <Description content={description} class="mb-3" />
-  <TagsList {...tagsList} />
+  <GroupedTagsList {...tagsList} />
 </div>

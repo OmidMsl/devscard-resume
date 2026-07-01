@@ -6,7 +6,7 @@ import SkillLevel from './skill-level.astro';
 
 export interface Props extends LevelledSkill {}
 
-const { url, icon, iconColor, name, level, description } = Astro.props;
+const { url, icon, iconSvg, iconColor, name, level, description } = Astro.props;
 
 const IconWrapper = url ? 'a' : 'div';
 ---
@@ -14,7 +14,34 @@ const IconWrapper = url ? 'a' : 'div';
 <div class="flex flex-col gap-2">
   <div class="flex h-5 items-center justify-between">
     <IconWrapper class="flex h-5 gap-2" {...url && { href: url, target: '_blank', rel: 'noopener noreferrer' }}>
-      {icon && <Icon name={icon} color={iconColor} size={20} />}
+      {iconSvg ? (
+        (() => {
+          const src = typeof iconSvg === 'string' ? iconSvg : iconSvg.src;
+          const color = iconColor ?? 'currentColor';
+
+          return (
+            <span
+              aria-hidden="true"
+              style={{
+                display: 'inline-block',
+                width: '20px',
+                height: '20px',
+                backgroundColor: color,
+                WebkitMaskImage: `url(${src})`,
+                WebkitMaskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+                WebkitMaskSize: 'contain',
+                maskImage: `url(${src})`,
+                maskRepeat: 'no-repeat',
+                maskPosition: 'center',
+                maskSize: 'contain',
+              }}
+            />
+          );
+        })()
+      ) : (
+        icon && <Icon name={icon} color={iconColor} size={20} />
+      )}
       <Typography variant="skill">{name}</Typography>
     </IconWrapper>
     {

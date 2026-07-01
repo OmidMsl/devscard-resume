@@ -1,4 +1,5 @@
 import createLinkFactory from '@/data/_internals/create-link-factory';
+import baleIconUrl from '@/assets/skills-icons/bale.svg';
 
 /*
 
@@ -38,6 +39,21 @@ export const twitter = createLinkFactory({
 export const pinterest = createLinkFactory({
   name: 'Pinterest',
   icon: 'fa6-brands:pinterest',
+});
+
+export const telegram = createLinkFactory({
+  name: 'Telegram',
+  icon: 'fa6-brands:telegram',
+});
+
+export const whatsapp = createLinkFactory({
+  name: 'WhatsApp',
+  icon: 'fa6-brands:whatsapp',
+});
+
+export const bale = createLinkFactory({
+  name: 'Bale',
+  iconSvg: baleIconUrl,
 });
 
 // CODE
@@ -161,4 +177,9 @@ export const mockups = createLinkFactory({
 export const repository = createLinkFactory({
   name: 'Repository',
   icon: 'fa6-solid:code-branch',
+});
+
+export const download = createLinkFactory({
+  name: 'Download',
+  icon: 'fa6-solid:download',
 });

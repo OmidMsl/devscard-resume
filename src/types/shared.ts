@@ -88,6 +88,13 @@ export interface Tag {
   icon?: IconName;
 
   /**
+   * [WEB] Optional local SVG icon. When provided, it will be rendered instead of `icon`.
+   *
+   * Can be provided either as a runtime URL string, or as an Astro static asset import result.
+   */
+  iconSvg?: string | ImageMetadata;
+
+  /**
    * [WEB] Color of the icon. By default, the color is inherited from the text.
    */
   iconColor?: string;
@@ -116,6 +123,32 @@ export interface TagsList {
    */
   tags: Tag[];
 }
+
+export interface TagGroup {
+  /**
+   * [PDF] Subtitle for the specific tag group.
+   */
+  subtitle: string;
+
+  /**
+   * Tags for this group.
+   */
+  tags: Tag[];
+}
+
+export interface GroupedTagsList {
+  /**
+   * [PDF] Title displayed before the grouped tag list.
+   */
+  title: string;
+
+  /**
+   * Groups of tags with subtitles.
+   */
+  groups: TagGroup[];
+}
+
+export interface TagsListGroup extends GroupedTagsList {}
 
 export interface DownloadButton {
   /**
@@ -147,7 +180,17 @@ export interface LinkButton {
   /**
    * [WEB] Icon displayed within the button.
    */
-  icon: IconName;
+  icon?: IconName;
+
+  /**
+   * [WEB] Optional local SVG icon. When provided, it will be rendered instead of `icon`.
+   */
+  iconSvg?: string | ImageMetadata;
+
+  /**
+   * [WEB] Color of the icon. By default, the color is inherited from the text.
+   */
+  iconColor?: string;
 
   /**
    * [WEB] URL that will be opened in a new tab, when the button is clicked.

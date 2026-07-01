@@ -1,0 +1,21 @@
+---
+import type { TagsListGroup } from '@/types/shared';
+
+export interface Props extends TagsListGroup {}
+
+const { title, groups } = Astro.props;
+---
+
+<div class="flex flex-col gap-1">
+  {title && (
+    <div class="text-base mb-1">
+      <span class="font-medium text-gray-700">{title}:</span>
+    </div>
+  )}
+  {groups.map((group) => (
+    <div class="text-base">
+      <span class="font-medium text-gray-700">{group.subtitle}:</span>
+      <span class="font-normal text-gray-500">{group.tags.map((t) => t.name).join(', ')}</span>
+    </div>
+  ))}
+</div>

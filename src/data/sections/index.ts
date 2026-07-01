@@ -5,6 +5,7 @@ import experienceData from './experience-section.data';
 import favoritesData from './favorites-section.data';
 import mainData from './main-section.data';
 import portfolioData from './portfolio-section.data';
+import researchData from './research-section.data';
 import skillsData from './skills-section.data';
 import testimonialsData from './testimonials-section.data';
 
@@ -13,6 +14,7 @@ export const sections = {
   skills: skillsData,
   experience: experienceData,
   portfolio: portfolioData,
+  research: researchData,
   education: educationData,
   testimonials: testimonialsData,
   favorites: favoritesData,

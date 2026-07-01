@@ -1,0 +1,35 @@
+---
+import type { ResearchItem } from '@/types/sections/research-section.types';
+import Description from '@/web/components/description.astro';
+import LabelledValue from '@/web/components/labelled-value.astro';
+import LinkButton from '@/web/components/link-button.astro';
+import TagsList from '@/web/components/tags-list.astro';
+import Timestamp from '@/web/components/timestamp.astro';
+import Typography from '@/web/components/typography.astro';
+
+export interface Props extends ResearchItem {}
+
+const { title, researchTitle, dates, details, description, keywords, links = [] } = Astro.props;
+---
+
+<div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-3">
+    <div class="flex flex-wrap items-start justify-between gap-3">
+      <div>
+        <Typography variant="item-title">{researchTitle}</Typography>
+        <Typography variant="item-subtitle-primary">{title}</Typography>
+        {dates && <Timestamp dates={dates} />}
+      </div>
+      <div class="flex flex-wrap gap-2">
+        {links.map((link) => <LinkButton {...link} />)}
+      </div>
+    </div>
+
+    <div class="inline-grid w-full xl:grid-cols-[auto_auto]">
+      {details.map((detail) => <LabelledValue {...detail} />)}
+    </div>
+  </div>
+
+  <Description content={description} />
+  <TagsList {...keywords} />
+</div>

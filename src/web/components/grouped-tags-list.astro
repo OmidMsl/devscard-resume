@@ -1,0 +1,27 @@
+---
+import type { TagsListGroup } from '@/types/shared';
+import Tag from './tag.astro';
+import Typography from './typography.astro';
+
+export interface Props extends TagsListGroup {}
+
+const { title, groups } = Astro.props;
+---
+
+{groups.length > 0 && (
+  <div class="flex flex-col gap-3">
+    {title && <Typography variant="label">{title}</Typography>}
+    <div class="flex flex-col gap-3">
+      {groups.map((group) => (
+        <div class="flex flex-col gap-1">
+          <Typography variant="item-subtitle-secondary" class="uppercase tracking-wide text-gray-500 dark:text-gray-400">{group.subtitle}</Typography>
+          <div class="flex flex-wrap gap-3">
+            {group.tags.map((tag) => (
+              <Tag {...tag} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+)}

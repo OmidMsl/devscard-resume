@@ -11,9 +11,9 @@ const config = {
     },
   },
   meta: {
-    title: 'Mark Freeman - Senior React Developer',
+    title: 'Omid Mosalmani - Senior Backend Developer',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales ac dui at vestibulum. In condimentum metus id dui tincidunt, in blandit mi vehicula.',
+      'Senior Backend Developer with 5+ years of experience building distributed backend systems, AI-powered applications, and production infrastructure. Experienced in Python, Django, LLMs, RAG, Docker, System Design, and DevOps with previous experience in Full Stack and Flutter development.',
     faviconPath: '/src/assets/my-image.jpeg',
   },
   pdf: {
