@@ -6,6 +6,8 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://omid-mosalmani.github.io',
+  base: '/devscard-resume',
   integrations: [tailwind(), image(), compress()],
   vite: {
     plugins: [visualizer()],
