@@ -40,19 +40,25 @@ const main = async () => {
   const page = await browser.newPage();
 
   await page.setViewport({ width: 794, height: 1122, deviceScaleFactor: 2 });
+  const locales: Array<{ code: string; out: string }> = [
+    { code: 'en', out: path.join(__dirname, '..', 'public', 'cv-en.pdf') },
+    { code: 'fa', out: path.join(__dirname, '..', 'public', 'cv-fa.pdf') },
+  ];
 
-  await retry({
-    promise: () => goTo(page, 'http://localhost:3000/pdf'),
-    retries: 5,
-    retryTime: 1000,
-  });
+  for (const loc of locales) {
+    await retry({
+      promise: () => goTo(page, `http://localhost:3000/${loc.code}/pdf`),
+      retries: 5,
+      retryTime: 1000,
+    });
 
-  await pdfPage(page, {
-    path: path.join(__dirname, '..', 'public', 'cv.pdf'),
-    format: 'A4',
-    printBackground: true,
-    margin: { top: '10mm', right: '10mm', bottom: '10mm', left: '10mm' },
-  });
+    await pdfPage(page, {
+      path: loc.out,
+      format: 'A4',
+      printBackground: true,
+      margin: { top: '10mm', right: '10mm', bottom: '10mm', left: '10mm' },
+    });
+  }
 
   await browser.close();
 

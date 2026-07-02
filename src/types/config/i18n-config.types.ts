@@ -7,6 +7,11 @@ export interface I18nConfig {
   locale: Locale;
 
   /**
+   * Text direction used for the document.
+   */
+  direction: 'ltr' | 'rtl';
+
+  /**
    * Date format used when displaying date ranges in some sections.
    */
   dateFormat: string;

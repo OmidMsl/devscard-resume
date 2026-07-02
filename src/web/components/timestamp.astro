@@ -7,8 +7,9 @@ export interface Props {
   dates: DateRange;
 }
 const { dates } = Astro.props;
+const locale = Astro.url.pathname.startsWith('/fa') ? 'fa' : 'en';
 ---
 
 <Typography variant="item-subtitle-secondary">
-  {formatDateRange(dates)}
+  {formatDateRange(dates, locale)}
 </Typography>

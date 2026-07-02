@@ -1,0 +1,44 @@
+---
+import Fonts from '@/components/fonts.astro';
+import Footer from '@/pdf/components/footer.astro';
+import EducationSection from '@/pdf/sections/education-section.pdf.astro';
+import ExperienceSection from '@/pdf/sections/experience-section.pdf.astro';
+import MainSection from '@/pdf/sections/main-section.pdf.astro';
+import PortfolioSection from '@/pdf/sections/portfolio-section.pdf.astro';
+import ResearchSection from '@/pdf/sections/research-section.pdf.astro';
+import SkillsSection from '@/pdf/sections/skills-section.pdf.astro';
+
+import { getLocalizedCvData } from '@/data';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fa' } }];
+}
+
+const { lang } = Astro.params;
+const locale = lang === 'fa' ? 'fa' : 'en';
+const { config, sections } = getLocalizedCvData(locale)();
+
+const shouldRenderSection = (section: keyof typeof sections) => sections[section] && sections[section].config.visible;
+---
+
+<!DOCTYPE html>
+<html lang={config.i18n.locale.code} dir={config.i18n.direction}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>PDF preview</title>
+    <Fonts />
+  </head>
+  <body
+    class="flex flex-col bg-white p-[10mm] print:p-0"
+    style={locale === 'fa' ? "font-family: 'IranSans', 'IranSansFaNum', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;" : undefined}
+  >
+    {shouldRenderSection('main') && <MainSection {...sections.main} />}
+    {shouldRenderSection('skills') && <SkillsSection {...sections.skills} />}
+    {shouldRenderSection('experience') && <ExperienceSection {...sections.experience} />}
+    {shouldRenderSection('portfolio') && <PortfolioSection {...sections.portfolio} />}
+    {shouldRenderSection('research') && <ResearchSection {...sections.research} />}
+    {shouldRenderSection('education') && <EducationSection {...sections.education} />}
+    {config.pdf?.footer && <Footer>{config.pdf.footer}</Footer>}
+  </body>
+</html>

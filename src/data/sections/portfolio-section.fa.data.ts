@@ -20,35 +20,36 @@ import {
   n8n,
   nginx,
   prometheus,
-  rag, restApi,
+  rag,
+  restApi,
   roboflow,
   sqlite,
 } from '../helpers/skills';
 
-const portfolioSectionData = {
+const portfolioSectionDataFA = {
   config: {
-    title: 'Projects',
+    title: 'پروژه‌ها',
     slug: 'projects',
     icon: 'fa6-solid:rocket',
     visible: true,
     screenshots: {
-      title: 'Screenshots',
+      title: 'تصاویر',
       icon: 'fa6-solid:images',
     },
   },
   projects: [
     {
-      name: 'FarmTech',
+      name: 'فارمتک',
       image: import('@/assets/portfolio/farmtech-logo.png'),
       dates: [new Date('2021-06'), null],
       details: [
-        { label: 'Team size', value: '8 people' },
+        { label: 'حجم تیم', value: '۸ نفر' },
         {
-          label: 'My role',
-          value: ['Full Stack Developer (2021–2024)', 'Senior Backend & AI Engineer (2024–Present)'],
+          label: 'نقش',
+          value: ['توسعه دهنده فول استک (2021–2024)', 'توسعه دهنده ارشد بک اند و هوش مصنوعی (2024–اکنون)'],
         },
-        { label: 'Company', value: 'Setare Soheil Co.' },
-        { label: 'Category', value: ['IoT', 'AI', 'Smart Agriculture'] },
+        { label: 'شرکت', value: 'توسعه فناوری ستاره سهیل' },
+        { label: 'دسته‌بندی', value: ['اینترنت اشیا', 'هوش مصنوعی', 'کشاورزی هوشمند'] },
       ],
       pdfDetails: [{ label: 'Website', value: 'https://app.farmtech.ir/', url: '#' }],
       screenshots: [
@@ -58,13 +59,13 @@ const portfolioSectionData = {
         { src: import('@/assets/portfolio/farmtech_screenhsot_4.jpg'), alt: 'Fourth screenshot' },
       ],
       description:
-        'Designed and developed a production IoT platform for greenhouse monitoring and automation. Started as a full-stack developer building the Angular frontend and Django backend, then transitioned to leading backend architecture and AI-powered features.\n' +
+        'طراحی و توسعه یک پلتفرم عملیاتی اینترنت اشیا برای پایش و اتوماسیون گلخانه. فعالیت خود را با توسعه همزمان رابط کاربری Angular و بک‌اند Django آغاز کرده و در ادامه مسئولیت طراحی معماری بک‌اند و توسعه قابلیت‌های مبتنی بر هوش مصنوعی را بر عهده گرفتم.' +
         '<br />' +
-        'Designed reliable MQTT communication protocols, offline data synchronization, fail-safe recovery mechanisms, and multi-channel alerting to ensure stable operation despite unreliable internet and power conditions. Built advanced automation features including rule-based controllers, configurable fuzzy logic, recurring scheduling, and role-based interfaces tailored for users with different technical expertise.\n' +
+        'طراحی پروتکل‌های ارتباطی مبتنی بر MQTT، سامانه همگام‌سازی داده در شرایط آفلاین، مکانیزم‌های بازیابی پس از خطا و سامانه هشدار چندکاناله با هدف حفظ پایداری عملکرد در شرایط قطعی اینترنت و برق. همچنین توسعه قابلیت‌هایی نظیر موتور قوانین، منطق فازی قابل پیکربندی، زمان‌بندی‌های تکرارشونده و رابط‌های کاربری مبتنی بر نقش.' +
         '<br />' +
-        'Integrated modern AI capabilities including Retrieval-Augmented Generation (RAG), greenhouse-aware AI assistants, crop disease detection using Roboflow and LLMs, contextual recommendations, and intelligent application support. Managed production infrastructure using Docker, Nginx, Prometheus, Grafana, GitLab, Bash automation, and optimized MySQL and InfluxDB for large-scale sensor and operational data.',
+        'پیاده‌سازی قابلیت‌های هوش مصنوعی شامل RAG، دستیار هوشمند مدیریت گلخانه، تشخیص بیماری گیاه با ترکیب Roboflow و مدل‌های زبانی بزرگ، ارائه پیشنهادهای هوشمند و سامانه پشتیبانی مبتنی بر هوش مصنوعی. همچنین مدیریت زیرساخت عملیاتی شامل Docker، Nginx، Prometheus، Grafana، GitLab و بهینه‌سازی MySQL و InfluxDB برای مدیریت حجم بالای داده‌های حسگرها.',
       tagsList: {
-        title: 'Technologies',
+        title: 'تکنولوژی‌ها',
         tags: [
           django(),
           angular(),
@@ -86,16 +87,16 @@ const portfolioSectionData = {
       links: [website({ url: 'https://app.farmtech.ir/' })],
     },
     {
-      name: 'Persian Leitner',
+      name: 'لایتنر فارسی',
       image: import('@/assets/portfolio/english_leitner_box.png'),
       dates: [new Date('2020-08'), new Date('2020-10')],
       details: [
-        { label: 'Team size', value: '1 person' },
-        { label: 'My role', value: ['Flutter Developer'] },
-        { label: 'Category', value: ['Mobile Application', 'Education'] },
+        { label: 'حجم تیم', value: 'یک نفر' },
+        { label: 'نقش', value: ['توسعه دهنده فلاتر'] },
+        { label: 'دسته‌بندی', value: ['اپلیکیشن موبایل', 'آموزش'] },
       ],
       pdfDetails: [
-        { label: 'Download', value: 'https://cafebazaar.ir/app/com.omidmsl.english_leitner_box', url: '#' },
+        { label: 'دانلود', value: 'https://cafebazaar.ir/app/com.omidmsl.english_leitner_box', url: '#' },
         { label: 'Repository', value: 'https://github.com/OmidMsl/english_leitner_box', url: '#' },
       ],
       screenshots: [
@@ -107,9 +108,9 @@ const portfolioSectionData = {
         { src: import('@/assets/portfolio/leitner_screenshot_6.png'), alt: 'Sixth screenshot' },
       ],
       description:
-        'Developed a Persian flashcard application based on the Leitner learning method to improve vocabulary retention through spaced repetition. Designed an intuitive user experience for creating, organizing, and reviewing study cards while providing learning statistics and progress tracking.',
+        'توسعه نرم‌افزار فلش‌کارت فارسی مبتنی بر روش یادگیری لایتنر با هدف افزایش ماندگاری واژگان از طریق مرور با فواصل زمانی. طراحی تجربه کاربری برای ایجاد، دسته‌بندی و مرور کارت‌ها همراه با نمایش آمار یادگیری و میزان پیشرفت کاربر.',
       tagsList: {
-        title: 'Technologies',
+        title: 'تکنولوژی‌ها',
         tags: [flutter(), dart(), sqlite()],
       },
       links: [
@@ -118,13 +119,13 @@ const portfolioSectionData = {
       ],
     },
     {
-      name: 'IranGard',
+      name: 'ایرانگرد',
       image: import('@/assets/portfolio/flutter.png'),
       dates: [new Date('2021-08'), new Date('2021-10')],
       details: [
-        { label: 'Team size', value: '1 person' },
-        { label: 'My role', value: ['Flutter Developer'] },
-        { label: 'Category', value: ['Tourism', 'Mobile Application'] },
+        { label: 'حجم تیم', value: 'یک نفر' },
+        { label: 'نقش', value: ['توسعه دهنده فلاتر'] },
+        { label: 'دسته‌بندی', value: ['گردشگری', 'اپلیکیشن موبایل'] },
       ],
       pdfDetails: [{ label: 'Repository', value: 'https://github.com/OmidMsl/iran_gard', url: '#' }],
       screenshots: [
@@ -142,9 +143,9 @@ const portfolioSectionData = {
         { src: import('@/assets/portfolio/irangard_screenshot_12.png'), alt: 'Twelfth screenshot' },
       ],
       description:
-        'Developed a tourism application introducing attractions, historical places, and travel destinations across Iran. Implemented interactive maps, location-based features, and responsive mobile interfaces to provide users with an easy way to discover nearby places of interest.',
+        'توسعه نرم‌افزار گردشگری با هدف معرفی جاذبه‌های طبیعی، تاریخی و گردشگری ایران. پیاده‌سازی قابلیت‌های مبتنی بر نقشه، خدمات مکان‌محور و رابط کاربری واکنش‌گرا برای دسترسی آسان کاربران به مکان‌های دیدنی اطراف.',
       tagsList: {
-        title: 'Technologies',
+        title: 'تکنولوژی‌ها',
         tags: [flutter(), googleMaps(), firebase()],
       },
       links: [github({ url: 'https://github.com/OmidMsl/iran_gard' })],
@@ -154,10 +155,10 @@ const portfolioSectionData = {
       image: import('@/assets/portfolio/spec.png'),
       dates: [new Date('2020-10'), new Date('2020-11')],
       details: [
-        { label: 'Team size', value: '3 people' },
-        { label: 'My role', value: 'Flutter Developer' },
-        { label: 'Company', value: 'SPEC' },
-        { label: 'Category', value: ['Mobile Application', 'Industrial'] },
+        { label: 'حجم تیم', value: '۳ نفر' },
+        { label: 'نقش', value: 'توسعه دهنده فلاتر' },
+        { label: 'شرکت', value: 'SPEC' },
+        { label: 'دسته‌بندی', value: ['اپلیکیشن موبایل', 'صنعتی'] },
       ],
       pdfDetails: [],
       screenshots: [
@@ -171,9 +172,9 @@ const portfolioSectionData = {
         { src: import('@/assets/portfolio/spec_screenshot_8.png'), alt: 'Eighth screenshot' },
       ],
       description:
-        'Developed a Flutter mobile application for controlling an industrial air conditioning system through Bluetooth Low Energy (BLE). Built the user interface and device communication flow to allow users to connect to the controller, send commands, and manage AC settings directly from their mobile devices.',
+        'توسعه نرم‌افزار Flutter جهت کنترل سیستم تهویه مطبوع صنعتی از طریق Bluetooth Low Energy (BLE). طراحی رابط کاربری و پیاده‌سازی فرآیند اتصال به کنترلر، ارسال فرمان و مدیریت تنظیمات دستگاه از طریق تلفن همراه.',
       tagsList: {
-        title: 'Technologies',
+        title: 'تکنولوژی‌ها',
         tags: [flutter(), dart(), ble()],
       },
       links: [],
@@ -183,9 +184,9 @@ const portfolioSectionData = {
       image: import('@/assets/portfolio/ma_app.png'),
       dates: [new Date('2021-02'), new Date('2021-06')],
       details: [
-        { label: 'Team size', value: '2 people' },
-        { label: 'My role', value: ['Flutter Developer'] },
-        { label: 'Category', value: ['Mobile Application', 'E-commerce'] },
+        { label: 'حجم تیم', value: '۲ نفر' },
+        { label: 'نقش', value: ['توسعه دهنده فلاتر'] },
+        { label: 'دسته‌بندی', value: ['اپلیکیشن موبایل', 'تجارت الکترونیک'] },
       ],
       screenshots: [
         { src: import('@/assets/portfolio/ma_screenshot_1.png'), alt: 'First screenshot' },
@@ -200,9 +201,9 @@ const portfolioSectionData = {
         { src: import('@/assets/portfolio/ma_screenshot_10.png'), alt: 'Tenth screenshot' },
       ],
       description:
-        'Developed a cross-platform Flutter application for an online marketplace focused on ceramic tiles and related building materials, where sellers were also the producers. Implemented product browsing, ordering workflows, and backend integration to provide a smooth shopping experience for customers and a practical management interface for vendors.',
+        'توسعه یک نرم‌افزار مالتی پلتفرم Flutter برای بازار آنلاین کاشی، سرامیک و مصالح ساختمانی که فروشندگان آن تولیدکنندگان محصولات بودند. پیاده‌سازی فرآیندهای مشاهده محصولات، ثبت سفارش و ارتباط با سرویس‌های بک‌اند با هدف ارائه تجربه‌ای روان برای مشتریان و پنل مدیریتی مناسب برای فروشندگان.',
       tagsList: {
-        title: 'Technologies',
+        title: 'تکنولوژی‌ها',
         tags: [flutter(), firebase(), googleMaps(), restApi()],
       },
       links: [],
@@ -210,4 +211,4 @@ const portfolioSectionData = {
   ],
 } as const satisfies ReadonlyDeep<PortfolioSection>;
 
-export default portfolioSectionData;
+export default portfolioSectionDataFA;

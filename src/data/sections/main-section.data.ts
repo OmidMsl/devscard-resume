@@ -23,7 +23,6 @@ const mainSectionData = {
     { label: 'Email', value: 'omid.mosalmanii@gmail.com' },
     { label: 'LinkedIn', value: '/in/omid-mosalmani-6694761b2', url: 'https://linkedin.com' },
     { label: 'GitHub', value: '/OmidMsl', url: 'https://github.com' },
-    { label: 'Website', value: 'mark-freeman-personal-website.com', url: '/', fullRow: true },
   ],
   description:
     "**Senior Backend Developer** with **5+ years of experience** designing and building **production backend systems**. My primary focus is developing reliable platforms that combine **IoT**, **monitoring** and **alerting**, **automation**, and **AI-powered services**. I have hands-on experience integrating **LLMs** and **Retrieval-Augmented Generation (RAG)** into production applications, supported by a Master's degree in **Artificial Intelligence**.",
@@ -37,8 +36,8 @@ const mainSectionData = {
   ],
   action: {
     label: 'Download CV',
-    url: '/cv.pdf',
-    downloadedFileName: 'CV-Omid_mosalmani.pdf',
+    url: '/cv-en.pdf',
+    downloadedFileName: 'CV-Omid_mosalmani-en.pdf',
   },
   links: [
     telegram({ url: 'https://t.me/omidMsl' }),
